@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { company } from "@/lib/data";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -18,19 +19,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:gap-12">
           {/* Brand Info */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#0F9F95]/40 bg-[#0F9F95]/15 text-xs font-bold text-[#0F9F95]">
-                SSE
-              </div>
-              <div>
-                <span className="block text-sm font-bold text-white tracking-tight">
-                  {company.name}
-                </span>
-                <span className="block text-[11px] font-medium text-slate-300">
-                  {company.division}
-                </span>
-              </div>
-            </div>
+            <BrandLogo
+              variant="full"
+              theme="dark"
+              size="lg"
+              href="/"
+            />
             <p className="mt-4 max-w-md text-xs leading-relaxed text-slate-300">
               Authorized clinical technology distributor and biomedical engineering service provider.
               Supplying precision patient monitoring, critical care infrastructure, surgical suites,

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { company } from "@/lib/data";
 import { useRFQ } from "@/context/RFQContext";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -30,23 +31,14 @@ export default function Nav() {
     <header className="sticky top-0 z-40 border-b border-[#1E3F66] bg-[#10243A] text-white shadow-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         {/* Company Identity */}
-        <Link
+        <BrandLogo
+          variant="responsive"
+          theme="dark"
+          size="md"
           href="/"
-          className="focus-ring flex items-center gap-3 group"
           onClick={() => setIsOpen(false)}
-        >
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#0F9F95]/50 bg-[#0F9F95]/15 text-xs font-bold tracking-wider text-[#0F9F95] transition-all group-hover:border-[#0F9F95] group-hover:bg-[#0F9F95]/25 shadow-xs">
-            SSE
-          </div>
-          <div className="leading-tight">
-            <span className="block text-sm font-bold tracking-tight text-white group-hover:text-[#99E2DC] transition-colors">
-              Shree Shyam Electronics
-            </span>
-            <span className="block text-[11px] font-medium text-slate-300">
-              Biomedical Systems Catalog
-            </span>
-          </div>
-        </Link>
+          priority
+        />
 
         {/* Desktop Navigation */}
         <nav
@@ -86,7 +78,10 @@ export default function Nav() {
             title="View selected equipment quotation list"
           >
             <span>Quote List</span>
-            <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#0F9F95] px-1.5 text-[10px] font-bold text-white shadow-xs">
+            <span
+              suppressHydrationWarning
+              className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#0F9F95] px-1.5 text-[10px] font-bold text-white shadow-xs"
+            >
               {totalCount}
             </span>
           </button>
@@ -110,7 +105,10 @@ export default function Nav() {
             aria-label={`Open Quote List with ${totalCount} items`}
           >
             <span className="text-xs font-medium">Quotes</span>
-            <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-[#0F9F95] px-1 text-[10px] font-bold text-white">
+            <span
+              suppressHydrationWarning
+              className="flex h-4 min-w-4 items-center justify-center rounded-full bg-[#0F9F95] px-1 text-[10px] font-bold text-white"
+            >
               {totalCount}
             </span>
           </button>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -48,13 +49,11 @@ export default function AdminLoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-[#F5F7FA] px-4 py-16">
       <div className="w-full max-w-md rounded-2xl border border-[#E2E8F0] bg-white p-8 shadow-sm">
         <div className="flex items-center justify-between border-b border-[#F1F5F9] pb-4">
-          <div className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#99E2DC] bg-[#E6F7F5] text-xs font-bold text-[#0F9F95]">
-              SSE
-            </div>
+          <div className="flex items-center gap-3">
+            <BrandLogo variant="symbol" theme="light" size="sm" priority />
             <div>
               <div className="text-xs font-bold text-[#172033]">Operations Console</div>
-              <div className="text-[11px] font-medium text-[#64748B]">Restricted Administration</div>
+              <div className="text-[11px] font-medium text-[#64748B]">Shree Shyam Electronics</div>
             </div>
           </div>
           <Link

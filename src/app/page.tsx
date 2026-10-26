@@ -2,6 +2,7 @@ import Link from "next/link";
 import CategoryCard from "@/components/CategoryCard";
 import CatalogSearch from "@/components/CatalogSearch";
 import { categories, company } from "@/lib/data";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function Home() {
   const totalItems = categories.reduce((sum, c) => sum + c.totalCount, 0);
@@ -169,6 +170,9 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.2fr]">
             <div>
+              <div className="mb-4">
+                <BrandLogo variant="full" theme="light" size="md" />
+              </div>
               <span className="text-xs font-semibold text-[#0F9F95] uppercase tracking-wider">
                 Corporate Standards & Capabilities
               </span>

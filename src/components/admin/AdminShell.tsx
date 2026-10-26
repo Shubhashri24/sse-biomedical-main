@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import BrandLogo from "@/components/BrandLogo";
 
 interface AdminShellProps {
   children: React.ReactNode;
@@ -186,9 +187,12 @@ export default function AdminShell({
   if (isVerifying) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[#F5F7FA] text-xs font-medium text-[#64748B]">
-        <div className="flex items-center gap-3 rounded-xl border border-[#E2E8F0] bg-white p-6 shadow-xs">
-          <div className="h-5 w-5 animate-spin rounded-full border-2 border-[#0F9F95] border-t-transparent" />
-          <span>Verifying administrative session...</span>
+        <div className="flex flex-col items-center gap-3.5 rounded-2xl border border-[#E2E8F0] bg-white p-7 shadow-xs">
+          <BrandLogo variant="symbol" theme="light" size="md" priority />
+          <div className="flex items-center gap-2.5 text-xs text-[#64748B]">
+            <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#0F9F95] border-t-transparent" />
+            <span>Verifying administrative session...</span>
+          </div>
         </div>
       </div>
     );
@@ -209,9 +213,7 @@ export default function AdminShell({
               ☰
             </button>
             <Link href="/admin" className="flex items-center gap-2.5">
-              <span className="flex h-7 w-7 items-center justify-center rounded-lg border border-[#0F9F95]/40 bg-[#0F9F95]/10 text-xs font-bold text-[#0F9F95]">
-                SSE
-              </span>
+              <BrandLogo variant="symbol" theme="light" size="xs" />
               <span className="hidden text-xs font-bold tracking-tight text-[#172033] sm:inline">
                 Biomedical Operations Console
               </span>
@@ -264,6 +266,7 @@ export default function AdminShell({
               {/* Mobile Drawer Header */}
               <div className="flex items-center justify-between border-b border-[#1E3F66] pb-3 md:hidden">
                 <div className="flex items-center gap-2">
+                  <BrandLogo variant="symbol" theme="dark" size="xs" />
                   <span className="font-bold text-xs text-[#0F9F95]">SSE BIOMEDICAL</span>
                 </div>
                 <button

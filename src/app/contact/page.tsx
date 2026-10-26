@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import { company } from "@/lib/data";
+import BrandLogo from "@/components/BrandLogo";
 
 export const metadata: Metadata = {
   title: "Contact & Quotation Desk | Shree Shyam Electronics",
@@ -31,18 +32,8 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.3fr]">
           {/* Business card */}
           <div className="h-fit rounded-2xl border border-[#E2E8F0] bg-white p-6 sm:p-7 shadow-xs">
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#99E2DC] bg-[#E6F7F5] text-xs font-bold text-[#0F9F95]">
-                SSE
-              </div>
-              <div>
-                <h2 className="text-base font-bold text-[#172033]">
-                  {company.name}
-                </h2>
-                <p className="text-xs text-[#64748B]">
-                  {company.division}
-                </p>
-              </div>
+            <div className="pb-1">
+              <BrandLogo variant="full" theme="light" size="lg" />
             </div>
 
             <div className="mt-6 grid grid-cols-2 gap-4 border-t border-[#F1F5F9] pt-5">

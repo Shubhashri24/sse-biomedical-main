@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRFQ } from "@/context/RFQContext";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function RFQDrawer() {
   const pathname = usePathname();
@@ -45,13 +46,16 @@ export default function RFQDrawer() {
       <div className="relative z-10 flex h-full w-full max-w-md flex-col border-l border-[#E2E8F0] bg-white shadow-2xl">
         {/* Header (Deep Navy) */}
         <div className="flex items-center justify-between border-b border-[#1E3F66] bg-[#10243A] px-6 py-4 text-white">
-          <div>
-            <span className="text-[11px] font-semibold tracking-wider uppercase text-[#0F9F95]">
-              Quotation List
-            </span>
-            <h2 id="rfq-drawer-title" className="text-base font-bold text-white">
-              Selected Equipment ({totalCount} {totalCount === 1 ? "unit" : "units"})
-            </h2>
+          <div className="flex items-center gap-3">
+            <BrandLogo variant="symbol" theme="dark" size="sm" />
+            <div>
+              <span className="text-[11px] font-semibold tracking-wider uppercase text-[#0F9F95]">
+                Quotation List
+              </span>
+              <h2 id="rfq-drawer-title" className="text-base font-bold text-white">
+                Selected Equipment ({totalCount} {totalCount === 1 ? "unit" : "units"})
+              </h2>
+            </div>
           </div>
           <button
             type="button"
@@ -69,10 +73,8 @@ export default function RFQDrawer() {
         <div className="flex-1 overflow-y-auto p-5 space-y-3 bg-[#F8FAFC]">
           {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-16 text-center text-slate-500">
-              <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-xl border border-dashed border-[#CBD5E1] bg-white text-slate-400 shadow-xs">
-                <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
+              <div className="mb-3">
+                <BrandLogo variant="badge" theme="light" size="lg" />
               </div>
               <p className="text-sm font-semibold text-[#172033]">Your quotation list is empty</p>
               <p className="mt-1.5 max-w-xs text-xs text-[#64748B] leading-relaxed">

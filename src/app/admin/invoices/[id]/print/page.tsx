@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import type { InvoiceDoc } from "@/lib/mongodb";
 import { formatINR, formatDateDDMMYYYY } from "@/lib/invoice-calculations";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function PrintInvoicePage() {
   const params = useParams();
@@ -159,11 +160,9 @@ export default function PrintInvoicePage() {
         </div>
 
         {/* Centered Company Header */}
-        <div className="mt-1 text-center">
-          <h1 className="text-base font-bold tracking-tight">
-            {company.companyName || "Shree Shyam Electronics"}
-          </h1>
-          <div className="mt-1 text-[11px] leading-tight space-y-0.5">
+        <div className="mt-3 flex flex-col items-center text-center">
+          <BrandLogo variant="full" theme="light" size="sm" priority />
+          <div className="mt-2 text-[11px] leading-tight space-y-0.5">
             {company.address && <p>{company.address}</p>}
             <p>State Name : {company.state || "Maharashtra"}, Code : {company.stateCode || "27"}</p>
             {company.email && <p>E-Mail : {company.email}</p>}
