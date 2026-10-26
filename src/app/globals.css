@@ -1,0 +1,298 @@
+@import "tailwindcss";
+
+:root {
+  /* =========================================================================
+     SHREE SHYAM ELECTRONICS — PROFESSIONAL BIOMEDICAL DESIGN SYSTEM TOKENS
+     ========================================================================= */
+
+  /* Primary Brand Colors */
+  --navy-deep: #10243A;       /* Brand structure, headers, admin sidebar */
+  --navy-surface: #173252;    /* Dark surface highlights */
+  --navy-border: #1E3F66;     /* Dark borders in sidebar */
+
+  --teal-primary: #0F9F95;    /* Primary actions, active indicators, interactive elements */
+  --teal-hover: #0B827B;      /* Hover states for primary actions */
+  --teal-subtle: #E6F7F5;     /* Subtle light teal background tints */
+  --teal-border: #99E2DC;     /* Light teal borders */
+
+  /* Neutral Backgrounds & Surfaces */
+  --bg-main: #F5F7FA;         /* Main application page background */
+  --surface-white: #FFFFFF;   /* Cards, panels, modals, dropdowns */
+  --surface-muted: #F8FAFC;   /* Table alternate rows, subtle containers */
+  --surface-subtle: #EDF2F7;  /* Inactive pills, subtle input backgrounds */
+
+  /* Typography Colors */
+  --text-main: #172033;       /* High-contrast primary text (headings, body) */
+  --text-secondary: #64748B;  /* Slate-500 for secondary text, labels, metadata */
+  --text-muted: #94A3B8;      /* Placeholder text, timestamps */
+  --text-light: #F1F5F9;      /* Inverted light text on deep navy backgrounds */
+
+  /* Borders & Dividers */
+  --border-color: #E2E8F0;    /* Standard clean borders */
+  --border-subtle: #F1F5F9;   /* Very subtle dividers */
+  --border-dark: #CBD5E1;     /* Emphasized borders, active form field borders */
+
+  /* Semantic Status Colors */
+  --success: #15803D;         /* Success text & icons */
+  --success-bg: #F0FDF4;      /* Success badge & alert background */
+  --success-border: #BBF7D0;  /* Success border */
+
+  --warning: #B45309;         /* Warning / Low stock text */
+  --warning-bg: #FFFBEB;      /* Warning badge background */
+  --warning-border: #FDE68A;  /* Warning border */
+
+  --critical: #B91C1C;        /* Critical / Out of stock text */
+  --critical-bg: #FEF2F2;     /* Critical badge background */
+  --critical-border: #FECACA; /* Critical border */
+
+  --info: #0369A1;            /* Informational badges */
+  --info-bg: #F0F9FF;
+  --info-border: #BAE6FD;
+
+  /* Typography Fonts */
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans: var(--font-plex-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+@theme inline {
+  --color-navy: var(--navy-deep);
+  --color-teal: var(--teal-primary);
+  --color-teal-hover: var(--teal-hover);
+  --color-bg-main: var(--bg-main);
+  --color-surface: var(--surface-white);
+  --color-text-main: var(--text-main);
+  --color-text-secondary: var(--text-secondary);
+  --color-border: var(--border-color);
+  --font-mono: var(--font-mono);
+  --font-sans: var(--font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar for professional data tables and modals */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Focus Ring Utility */
+.focus-ring:focus-visible {
+  outline: 2px solid var(--teal-primary);
+  outline-offset: 2px;
+}
+
+/* Card Elevation Utilities */
+.card-base {
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-color);
+  border-radius: 0.625rem;
+  box-shadow: 0 1px 3px 0 rgba(16, 36, 58, 0.04), 0 1px 2px -1px rgba(16, 36, 58, 0.04);
+}
+
+.card-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 4px 12px 0 rgba(16, 36, 58, 0.07), 0 2px 4px -2px rgba(16, 36, 58, 0.05);
+  transform: translateY(-1px);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--teal-primary);
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.15s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  box-shadow: 0 1px 2px rgba(15, 159, 149, 0.15);
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--teal-hover);
+  box-shadow: 0 2px 4px rgba(15, 159, 149, 0.25);
+}
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: var(--surface-white);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.15s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--surface-muted);
+  border-color: var(--border-dark);
+}
+
+.btn-navy {
+  background-color: var(--navy-deep);
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.15s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+}
+.btn-navy:hover:not(:disabled) {
+  background-color: var(--navy-surface);
+}
+
+/* Form Inputs */
+.form-input {
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--text-main);
+  width: 100%;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--teal-primary);
+  box-shadow: 0 0 0 3px rgba(15, 159, 149, 0.15);
+}
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+.form-input:disabled {
+  background-color: var(--surface-muted);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* Status Badges */
+.badge-success {
+  background-color: var(--success-bg);
+  color: var(--success);
+  border: 1px solid var(--success-border);
+  border-radius: 9999px;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.badge-warning {
+  background-color: var(--warning-bg);
+  color: var(--warning);
+  border: 1px solid var(--warning-border);
+  border-radius: 9999px;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.badge-critical {
+  background-color: var(--critical-bg);
+  color: var(--critical);
+  border: 1px solid var(--critical-border);
+  border-radius: 9999px;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.badge-teal {
+  background-color: var(--teal-subtle);
+  color: var(--teal-primary);
+  border: 1px solid var(--teal-border);
+  border-radius: 9999px;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.badge-neutral {
+  background-color: var(--surface-muted);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+/* Subdued vitals trace animation */
+.vitals-line path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-trace 2.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes draw-trace {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vitals-line path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
